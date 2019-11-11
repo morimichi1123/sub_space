@@ -1,0 +1,15 @@
+<div class="center jumbotron">
+        <% if logged_in? %>
+          <h1>Contents</h1><br>
+          <h2>
+            <li><%= link_to "Book List", list_path %></li><br><br>
+            <li><%= link_to "Add New Book", new_path %></li>
+          </h2>
+        <% else %>
+          <h1>Space App</h1>
+          <h2>
+            空いた空間・空いた時間、有効しませんか？
+          </h2>
+          <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
+        <% end %>
+</div>

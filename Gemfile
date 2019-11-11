@@ -15,8 +15,9 @@ gem 'jbuilder',     '2.7.0'
 gem 'bootstrap-sass', '3.3.7'
 #gem 'therubyracer'
 gem 'capybara'
-
+gem 'activerecord-import'
 gem 'webdrivers'
+gem 'gimei'
 
 group :development, :test do
   gem 'mysql2', '>= 0.3.18', '< 0.6.0'
