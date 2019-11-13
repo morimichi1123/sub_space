@@ -10,7 +10,7 @@
         <% else %>
             <li><% @user = User.new unless @user %></li>
             <li><%= form_for(@user, url: signup_path) do |f| %></li>
-            <li><%= render 'shared/error_messages' %></li>
+            <li><%= render 'shared/error_admin_messages' %></li>
 
             <li><%= f.label :email %></li>
             <li><%= f.email_field :email, class: 'form-control' %></li>
