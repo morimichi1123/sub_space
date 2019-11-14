@@ -10,13 +10,6 @@ Rails.application.routes.draw do
   get '/show',     to: 'spaces#show'
   get '/new',      to: 'spaces#new'
 
-
-  get 'spaces/edit'
-  get 'spaces/update'
-  get 'spaces/create'
-  get 'spaces/space_params'
-  get 'spaces/destroy'
-
   resources :users
   resources :spaces
 end

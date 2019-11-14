@@ -8,11 +8,11 @@
               <li><%= link_to "予約一覧Add New Book", new_path %></li>
               </h2>
           <% else %>
-          <h1>Contents</h1><br>
-          <h2>
-            <li><%= link_to "予約一覧", list_path %></li><br><br>
-            <li><%= link_to "ユーザー情報変更", new_path %></li>
-          </h2>
+            <h1>Contents</h1><br>
+            <h2>
+              <li><%= link_to "予約一覧", list_path %></li><br><br>
+              <li><%= link_to "ユーザー情報変更", edit_user_path(current_user) %></li>
+            </h2>
           <% end %>
         <% else %>
           <h1>Space App</h1>
@@ -41,6 +41,6 @@
               <%= f.submit "Create my account", class: "btn btn-primary" %>
             <% end %>
           </div>
-        </div>
+         </div>
         <% end %>
 </div>

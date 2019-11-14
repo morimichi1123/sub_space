@@ -1,2 +1,25 @@
-<h1>Spaces#edit</h1>
-<p>Find me in app/views/spaces/edit.html.erb</p>
+<% provide(:title, "Space Information") %>
+<h1>Update Space Information</h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+
+    <%= form_for(@space) do |f| %>
+      <%= render 'shared/book_error_messages' %>
+
+      <%= f.label :title %>
+      <%= f.text_field :title, class: 'form-control' %>
+
+      <%= f.label :author %>
+      <%= f.text_field :author, class: 'form-control' %>
+
+      <%= f.label :publisher %>
+      <%= f.text_field :publisher, class: 'form-control' %>
+
+      <%= f.label :genre %>
+      <%= f.text_field :genre, class: 'form-control' %>
+
+      <%= f.submit "Update!", class: "btn btn-primary" %>
+    <% end %>
+
+  </div>
+</div>
