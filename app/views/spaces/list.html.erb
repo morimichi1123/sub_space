@@ -11,17 +11,17 @@
         <% end %>
 
         <% @space = Space.new unless @space %>
-        <%= will_paginate %>
+        <%= will_paginate @space %>
         <table border="1" style="border-collapse: collapse">
         <tr>
             <th>id</th>
             <th>title</th>
         </tr>
-        <% @spaces.each do |space|%>
+        <% @space.each do |space|%>
             <%= render space %>
         <% end %>
         </table>
-        <%= will_paginate %>
+        <%= will_paginate @space %>
         </div>
     </body>
   </aside>
