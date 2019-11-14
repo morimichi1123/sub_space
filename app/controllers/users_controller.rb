@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :admin_user,     only: :destroy
+  before_action :admin_user, only: %i[ edit update destroy]
 
   def new
     @user = User.new
@@ -32,6 +32,7 @@ class UsersController < ApplicationController
                                   :password_confirmation)
     end
 
+    #管理者か確認
     def admin_user
       redirect_to(root_url) unless current_user.admin?
     end

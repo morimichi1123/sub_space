@@ -3,14 +3,18 @@
     <%= link_to "Space App", root_path, id: "logo" %>
     <nav>
       <ul class="nav navbar-nav navbar-right">
-        <% if logged_in? %>
+       <% if logged_in? %>
+          <% if current_user.admin? %>
             <li><%= link_to "Home", root_path %></li>
-            <li><%=link_to "#{session[:name]}さん",current_user %></li>
+            <li><%=link_to "admin",current_user %></li>
             <li><%= link_to "Log out", logout_path, method: :delete %></li>
+          <% else %>
+            <li><%= link_to "Home", list_path %></li>
+            <li><%=link_to "#{session[:name]}さん",root_path %></li>
+            <li><%= link_to "Log out", logout_path, method: :delete %></li>
+          <% end %>
         <% else %>
-            <li><% @user = User.new unless @user %></li>
-            <li><%= form_for(@user, url: signup_path) do |f| %></li>
-            <li><%= render 'shared/error_admin_messages' %></li>
+            <li><%= form_for(@user, url: login_path) do |f| %></li>
 
             <li><%= f.label :email %></li>
             <li><%= f.email_field :email, class: 'form-control' %></li>

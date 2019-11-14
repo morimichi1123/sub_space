@@ -1,10 +1,19 @@
 <div class="center jumbotron">
         <% if logged_in? %>
+          <% if current_user.admin? %>
+            <h1>Contents</h1><br>
+            <h2>
+              <li><%= link_to "ユーザ一覧", list_path %></li><br><br>
+              <li><%= link_to "物件一覧", list_path %></li><br><br>
+              <li><%= link_to "予約一覧Add New Book", new_path %></li>
+              </h2>
+          <% else %>
           <h1>Contents</h1><br>
           <h2>
-            <li><%= link_to "Book List", list_path %></li><br><br>
-            <li><%= link_to "Add New Book", new_path %></li>
+            <li><%= link_to "予約一覧", list_path %></li><br><br>
+            <li><%= link_to "ユーザー情報変更", new_path %></li>
           </h2>
+          <% end %>
         <% else %>
           <h1>Space App</h1>
           <h2>
