@@ -37,4 +37,5 @@ class SpacesController < ApplicationController
 
   def destroy
   end
+
 end
