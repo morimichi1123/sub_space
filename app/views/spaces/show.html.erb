@@ -1,5 +1,4 @@
 <% provide(:title,"Space Detail") %>
-  <aside class="col-md-4">
         <body>
             <h1>Space</h1>
             <div class="container">
@@ -15,7 +14,7 @@
                         <td><%= @space.ward_id %> </td>
                         <td><%= @space.price %> </td>
                         <td>
-                        | <%= link_to  "edit" , edit_book_path(@space.id)  %>
+                        | <%= link_to  "edit" , edit_space_path(@space.id)  %>
                         | <%= link_to "delete", @book, method: :delete,  data: { confirm: "You sure?" } %>
                         </td>
                     </tr>
