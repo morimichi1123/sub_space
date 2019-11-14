@@ -1,6 +1,7 @@
 class SpacesController < ApplicationController
-  before_action :logged_in_user
-  before_action :admin_user, only: %i[ edit update destroy]
+  before_action :logged_in_user, only: %i[ edit update]
+  before_action :admin_user, only: %i[ destroy]
+  before_action :correct_user, only: %i[ edit update]
 
   def new
     @space = Space.new
@@ -38,4 +39,13 @@ class SpacesController < ApplicationController
   def destroy
   end
 
+  def update
+    @space = Space.find(params[:id])
+    if @space.update_attributes(space_params)
+      flash[:success] = "Space Information Updated"
+      redirect_to @space
+    else
+      render 'edit'
+    end
+  end
 end

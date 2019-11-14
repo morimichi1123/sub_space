@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :admin_user, only: %i[ update destroy]
+  before_action :admin_user, only: %i[ destroy]
   before_action :logged_in_user, only: %i[ edit update]
   before_action :correct_user, only: %i[ edit update]
 
@@ -30,6 +30,16 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+      flash[:success] = "Your Information Updated"
+      redirect_to list_path
+    else
+      render 'edit'
+    end
   end
 
   private
