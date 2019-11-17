@@ -1,24 +1,52 @@
-<% provide(:title,"Space Detail") %>
-        <body>
-            <h1>Space</h1>
-            <div class="container">
-                <table border="1" style="border-collapse: collapse">
-                    <tr>
-                        <th>space_name</th>
-                        <th>ward_id</th>
-                        <th>price</th>
-                    </tr>
+<%= form_for [@space, @space.reservations.new] do |f| %>
 
-                    <tr>
-                        <td><%= @space.space_name %> </td>
-                        <td><%= @space.ward_id %> </td>
-                        <td><%= @space.price %> </td>
-                        <td>
-                        | <%= link_to  "edit" , edit_space_path(@space.id)  %>
-                        | <%= link_to "delete", @book, method: :delete,  data: { confirm: "You sure?" } %>
-                        </td>
-                    </tr>
-                </table>
+    <%= f.hidden_field :space_id, value: @space.id %>
+
+    <div class="container">
+        <div class='col-md-5'>
+            <div class="form-group">
+                <div class='input-group date' id='datetimepicker6'>
+                    <%= f.text_field :start_date, :class => 'form-control', :placeholder => "借りたい日"%>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
             </div>
-        </body>
-    </aside>
+        </div>
+        <div class='col-md-5'>
+            <div class="form-group">
+                <div class='input-group date' id='datetimepicker7'>
+                    <%= f.text_field :end_date, :class => 'form-control', :placeholder => "返す日"%>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+       <%= f.submit "この日程で予約する", class: "btn btn-danger btn-wide" %>
+
+
+    <% end %>
+
+    <script type="text/javascript">
+        $(function () {
+            $('#datetimepicker6').datetimepicker();
+            $('#datetimepicker7').datetimepicker({
+                useCurrent: false //Important! See issue #1075
+            });
+            $("#datetimepicker6").on("dp.change", function (e) {
+                $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
+            });
+            $("#datetimepicker7").on("dp.change", function (e) {
+                $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
+            });
+
+
+        });
+
+    </script>

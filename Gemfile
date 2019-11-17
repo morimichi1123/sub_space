@@ -18,6 +18,8 @@ gem 'activerecord-import'
 gem 'capybara'
 gem 'webdrivers'
 gem 'gimei'
+gem 'bootstrap3-datetimepicker-rails'
+gem 'momentjs-rails', '>= 2.9.0'
 
 group :development, :test do
   gem 'mysql2', '>= 0.3.18', '< 0.6.0'

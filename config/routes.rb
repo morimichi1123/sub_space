@@ -10,6 +10,10 @@ Rails.application.routes.draw do
   get '/show',     to: 'spaces#show'
   get '/new',      to: 'spaces#new'
 
+  resources :spaces do
+    resources :reservations
+  end
+
   resources :users
   resources :spaces
 end
