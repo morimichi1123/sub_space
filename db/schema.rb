@@ -42,6 +42,11 @@ ActiveRecord::Schema.define(version: 20191117142638) do
     t.boolean "admin"
   end
 
+  create_table "wards", id: false, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer "ward_id", null: false
+    t.string "ward_name", limit: 50, null: false
+  end
+
   add_foreign_key "reservations", "spaces"
   add_foreign_key "reservations", "users"
 end
